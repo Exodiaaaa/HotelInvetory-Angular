@@ -1,0 +1,84 @@
+{{ bookingForm.value | json }}
+{{ bookingForm.pristine | json }}
+{{ bookingForm.dirty | json }}
+
+<form class="example-form" [formGroup]="bookingForm" (ngSubmit)="addBooking()">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Room Id</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="roomId"
+      placeholder="Room Id"
+    />
+    <!--  <mat-error
+      *ngIf="
+        emailFormControl.hasError('email') &&
+        !emailFormControl.hasError('required')
+      "
+    >
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>-->
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      type="email"
+      matInput
+      formControlName="guestEmail"
+      placeholder="Provide an email"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      formControlName="guestName"
+      placeholder="Give a name"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      formControlName="mobileNumber"
+      placeholder="Provide a mobile number"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      formControlName="bookingAmount"
+      placeholder="Amount"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Check In Date :</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="checkinDate" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Check Out Date :</mat-label>
+    <input matInput [matDatepicker]="picker1" formControlName="checkoutDate" />
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Booking Date :</mat-label>
+    <input matInput [matDatepicker]="picker2" formControlName="bookingDate" />
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button color="primary">Submit</button>
+  </div>
+
+</form>
