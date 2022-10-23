@@ -15,11 +15,12 @@ import { RoomsListsInterface } from '../roomsInterface';
   selector: 'hia-rooms-list',
   templateUrl: './rooms-list.component.html',
   styleUrls: ['./rooms-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+//  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RoomsListComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() rooms: RoomsListsInterface[] | null = [];
+  @Input() rooms: RoomsListsInterface[] = [];
   @Input() title: string = '';
+  @Input() price=0;
 
   @Output() selectedRoom = new EventEmitter<RoomsListsInterface>();
 

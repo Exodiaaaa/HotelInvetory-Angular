@@ -1,45 +1,56 @@
 <!-- interpolation -->
 <!--<h1>Welcome to {{ hotelName }}</h1>-->
-<hia-header></hia-header>
+<!--<hia-header></hia-header>-->
 <!--<hia-header></hia-header>
 <hia-header></hia-header>-->
 
 <!--{{room$ | async | json}}-->
 
-<div [hidden]="hideRooms">
+<!--<div [hidden]="hideRooms">
   Number of rooms :
   <div
     [ngStyle]="{ color: rooms.availableRooms ? 'cyan' : 'red' }"
     [innerText]="numberOfRooms"
   ></div>
-  <!-- it means document.getElementById('numberOfRooms').innerText=numberOfRooms -->
-</div>
+   it means document.getElementById('numberOfRooms').innerText=numberOfRooms
+</div>-->
 
-{{ rooms?.availableRooms ?? "No rooms" }}
+<!--{{ rooms?.availableRooms ?? "No rooms" }}-->
 
-<div *ngIf="selectedRoom">
+<!--<div *ngIf="selectedRoom">
   {{ selectedRoom | json }}
-</div>
+</div>-->
 
 <div>
-  <button routerLink="rooms/add">Add room</button>
+  <button class="btn btn-success" routerLink="rooms/add">Add room</button>
 </div>
 <!--{{ roomsLists | json }} its used only in dev for debugging we dont use it in prod -->
-<h1>
-  <!-- {{getError$| async}}-->
-  Number of rooms is : {{roomsCount$ | async}}
-</h1>
+<!--<h1>-->
+<!-- {{getError$| async}}-->
+<!--Number of rooms is : {{roomsCount$ | async}}-->
+<!--</h1>-->
+{{ priceFilter | json }}
+<div>
+  <input
+    type="number"
+    class="form-control"
+    placeholder="Price"
+    [formControl]="priceFilter"
+  />
+</div>
 <div *ngIf="room$ | async as rooms">
   <hia-rooms-list
     [rooms]="rooms"
     [title]="title"
+    [price]="priceFilter.value"
     (selectedRoom)="selectRoom($event)"
   ></hia-rooms-list>
 </div>
+<!--
 <button (click)="toggle()">Toggle</button>
 <button (click)="editRoom()">Update Room</button>
-<button (click)="deleteRoom()">Delete Room</button>
+<button (click)="deleteRoom()">Delete Room</button>-->
 
-<h2>{{ totalBytes }} loaded !</h2>
+<!--<h2>{{ totalBytes }} loaded !</h2>-->
 
 <router-outlet></router-outlet>

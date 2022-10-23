@@ -14,6 +14,7 @@ import { RoomsService } from './services/rooms.service';
 import {catchError, map, Observable, of, Subject, Subscription} from 'rxjs';
 import { HttpEventType } from '@angular/common/http';
 import {ConfigService} from "../services/config.service";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'hia-rooms',
@@ -66,8 +67,8 @@ export class RoomsComponent implements OnInit, AfterViewInit, AfterViewChecked {
   ngAfterViewChecked(): void {}
 
   ngAfterViewInit(): void {
-    this.headerComponent.title = 'Hotêl Rooms :';
-    this.headerComponents.last.title = 'Bola rooms ';
+    //this.headerComponent.title = 'Hotêl Rooms :';
+    //  this.headerComponents.last.title = 'Bola rooms ';
     //this.headerComponents.get();
   }
 
@@ -163,4 +164,5 @@ export class RoomsComponent implements OnInit, AfterViewInit, AfterViewChecked {
       this.subscription.unsubscribe();
     }
   }*/
+  priceFilter = new FormControl(0);
 }
